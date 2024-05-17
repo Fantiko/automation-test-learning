@@ -90,7 +90,7 @@ Cypress.Commands.add('testaCampoQuill', (locator, limiteCaracteres, semNumero = 
     cy.get(locator).clear().type(result)
     cy.get(locator).then(($quillcontainer)=>{
         cy.wrap($quillcontainer).should('have.text', result)
-
+        cy.wrap($quillcontainer)
     })
 
 })

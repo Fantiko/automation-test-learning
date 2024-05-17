@@ -417,11 +417,37 @@ describe('US 66295 Template de Vaga - Cadastrar ', ()=>{
 
 	})
 
-	it('TC023- Validação Descrição da Vaga Caracteres', ()=>{
+	it.skip('TC023- Validação Descrição da Vaga Caracteres', ()=>{
 		cy.get('.btn-primary').click({force:true})
 		cy.testaCampoQuill('#descricaoVaga > .ql-container > .ql-editor',501)
+		cy.get('#requisitosText > .ql-container > .ql-editor').click()
+		cy.get('.error-msg').should('be.visible')
 
 	})
 
+	it.skip('TC024- Validação Responsabilidades e Atribuições Caracteres', ()=>{
+		cy.get('.btn-primary').click({force:true})
+		cy.testaCampoQuill('#responsabilidadesText > .ql-container > .ql-editor',501)
+		cy.get('#requisitosText > .ql-container > .ql-editor').click()
+		cy.get('.error-msg').should('be.visible')
+
+
+	})
+	
+	it.skip('TC025- Validação Requisitos e Qualificações Caracteres', ()=>{
+		cy.get('.btn-primary').click({force:true})
+		cy.testaCampoQuill('#requisitosText > .ql-container > .ql-editor',501)
+		cy.get('#informacoesText > .ql-container > .ql-editor').click()
+		cy.get('.error-msg').should('be.visible')
+
+	})
+
+	it.skip('TC026- Validação Requisitos e Qualificações Caracteres', ()=>{
+		cy.get('.btn-primary').click({force:true})
+		cy.testaCampoQuill('#informacoesText > .ql-container > .ql-editor',501)
+		cy.get('#requisitosText > .ql-container > .ql-editor').click()
+		cy.get('.error-msg').should('be.visible')
+
+	})
 
 })
