@@ -311,12 +311,87 @@ describe('US 66295 Template de Vaga - Cadastrar ', ()=>{
 
 	})
 
-	it('TC026- Validação Requisitos e Qualificações Caracteres', ()=>{
+	it('TC026 - Validação Requisitos e Qualificações Caracteres', ()=>{
 		cy.get('.btn-primary').click({force:true})
 		cy.testaCampoQuill('#informacoesText > .ql-container > .ql-editor',501)
 		cy.get('#requisitosText > .ql-container > .ql-editor').click()
 		cy.get('.error-msg').should('be.visible')
 
 	})
+
+  it.skip('TC027 -  Validação Imagem',()=>{
+
+
+
+  })
+
+  it('TC028- Validação Campos Vazios', () => {
+    cy.get('.btn-primary').click({force:true})
+    cy.get('#descricaoVaga > .ql-container > .ql-editor').click()
+    cy.get('#responsabilidadesText > .ql-container > .ql-editor').click()
+    cy.get('.error-msg').should('exist').and('be.visible')
+    cy.get('.btn-primary').should('be.disabled')
+
+  })
+
+  it('TC029- Botão Preview',() => {
+    cy.get('#nomeVaga').type("exist")
+		cy.get('#areaTrabalho').type("exist")
+		cy.get('#localVaga').type("exist")
+
+		cy.get('#cargo > .ng-select-container').type('Analista de')
+		cy.get('#cargo .ng-option-label').contains('Analista de').click()
+
+		cy.get('#tipoVaga > .ng-select-container').type('CLT')
+		cy.get('#tipoVaga .ng-option-label').contains('CLT').click()
+
+		cy.get('#modeloTrabalho > .ng-select-container').type('Presencial')
+		cy.get('#modeloTrabalho .ng-option-label').contains('Presencial').click()
+
+		cy.get('.btn-primary').click()
+    
+    cy.testaCampoQuill('#descricaoVaga > .ql-container > .ql-editor',12)
+
+    cy.testaCampoQuill('#responsabilidadesText > .ql-container > .ql-editor',12)
+
+    cy.testaCampoQuill('#requisitosText > .ql-container > .ql-editor',12)
+
+		cy.testaCampoQuill('#informacoesText > .ql-container > .ql-editor',12)
+
+    cy.get('.d-flex > .btn-secondary').click()
+    cy.get('app-template-vaga-preview').should('be.visible')
+
+  })
+
+  it.only('TC030- Botão Salvar', ()=>{
+    cy.get('#nomeVaga').type("exist")
+		cy.get('#areaTrabalho').type("exist")
+		cy.get('#localVaga').type("exist")
+
+		cy.get('#cargo > .ng-select-container').type('Analista de')
+		cy.get('#cargo .ng-option-label').contains('Analista de').click()
+
+		cy.get('#tipoVaga > .ng-select-container').type('CLT')
+		cy.get('#tipoVaga .ng-option-label').contains('CLT').click()
+
+		cy.get('#modeloTrabalho > .ng-select-container').type('Presencial')
+		cy.get('#modeloTrabalho .ng-option-label').contains('Presencial').click()
+
+		cy.get('.btn-primary').click()
+    
+    cy.testaCampoQuill('#descricaoVaga > .ql-container > .ql-editor',12)
+
+    cy.testaCampoQuill('#responsabilidadesText > .ql-container > .ql-editor',12)
+
+    cy.testaCampoQuill('#requisitosText > .ql-container > .ql-editor',12)
+
+		cy.testaCampoQuill('#informacoesText > .ql-container > .ql-editor',12)
+
+    cy.get('.btn-primary').should('be.enabled')
+
+
+  })
+  
+
 
 })
