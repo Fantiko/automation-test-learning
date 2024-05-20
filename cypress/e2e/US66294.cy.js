@@ -9,7 +9,7 @@ describe('US 66294 Template de Vaga - Pesquisar', () => {
     cy.visit('https://app.dev.recrutamento.itixti-lab.com.br/?vid=c0c57cefce721e119b155b441e1722d6')
 
     cy.get('.ci-settings').click()
-    cy.get('.sub-menu > :nth-child(15)').click()
+    cy.get('.sub-menu > :nth-child(14)').click()
 
   })
 
@@ -39,8 +39,8 @@ describe('US 66294 Template de Vaga - Pesquisar', () => {
     cy.get('.cluster-filter-select').should('contain.text','Criado por')
     cy.get('.cluster-filter-select').should('contain.text','Status')
 
-    cy.get(':nth-child(2) > date-picker.ng-untouched > .input-date-picker').should("exist")
-    cy.get('.mt-2 > date-picker.ng-untouched > .input-date-picker').should('exist')
+    cy.get('#periodoCriacaoInicial > .input-date-picker').should("exist")
+    cy.get(':nth-child(3) > date-picker.ng-untouched > .input-date-picker').should('exist')
 
   })
 

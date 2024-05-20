@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-describe.skip('US68312', () => {
+describe('US68312', () => {
   beforeEach('passes', () => {
 	cy.clearCookies()
     cy.getCookies().should('be.empty')
@@ -11,7 +11,7 @@ describe.skip('US68312', () => {
     cy.get('.sub-menu > :nth-child(10)').click()
   })
 
-  it.only('TC001 -  tela de "Motivos de Contratação/Demissão"',()=>{
+  it('TC001 -  tela de "Motivos de Contratação/Demissão"',()=>{
     cy.get('#title-section > h1').should('be.visible')
       	.and('have.text','Setup da Empresa')
     cy.get('.form-wrapper > :nth-child(1) > :nth-child(1) > h3').should('be.visible')
@@ -40,30 +40,30 @@ describe.skip('US68312', () => {
 
   })
 
-  it.only('TC002 - entrada válida em barra de pesquisa',()=>{
+  it('TC002 - entrada válida em barra de pesquisa',()=>{
 	cy.fazPesquisa('.grow > .ng-valid', ".primary", 'a')
   })
 
-  it.only('TC003 - entrada inválida em barra de pesquisa', ()=>{
+  it('TC003 - entrada inválida em barra de pesquisa', ()=>{
 	cy.fazPesquisa('.grow > .ng-untouched', ".primary", 'bla')
 
   })
 
-  it.only("TC004 - pesquisa com filtros tipo", () => {
+  it("TC004 - pesquisa com filtros tipo", () => {
 		
 		cy.comparaFiltro('#tipo > .custom > .ng-select-container', 'div.ng-option:nth(1)', ':nth-child(2)')
 		cy.comparaFiltro('#tipo > .custom > .ng-select-container', 'div.ng-option:nth(0)', ':nth-child(2)')
 
 	})
 
-	it.only("TC005 - pesquisa com filtros status", () => {
+	it("TC005 - pesquisa com filtros status", () => {
 		cy.comparaFiltro('#status > .custom > .ng-select-container', 'div.ng-option:nth(1)', ':nth-child(3)')
 		cy.comparaFiltro('#status > .custom > .ng-select-container', 'div.ng-option:nth(0)', ':nth-child(3)')
 
 
 	})
 
-	it.only("TC008 - limpar filtros", ()=>{
+	it("TC008 - limpar filtros", ()=>{
 		cy.comparaFiltro('#status > .custom > .ng-select-container', 'div.ng-option:nth(1)', ':nth-child(3)')
 		cy.get('header > :nth-child(2) > span').click()
 		cy.get('.primary')
@@ -71,7 +71,7 @@ describe.skip('US68312', () => {
 
 	})
 
-	it.only("TC009 - navegação pelo index", ()=>{
+	it("TC009 - navegação pelo index", ()=>{
 		cy.get('.ci-chevron_right').click()
 		cy.get('.ci-chevron_left').click()
 

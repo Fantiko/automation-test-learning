@@ -254,7 +254,7 @@ describe('US 66295 Template de Vaga - Cadastrar ', ()=>{
 
 		cy.get('.swal2-popup').should('be.visible')
 
-		cy.get('#swal2-title').should('be.visible').and('have.text',"ATENÇÃO!")
+		cy.get('#swal2-title').should('be.visible').and('have.text',"Os dados serão perdidos, deseja continuar?")
 
 		cy.get('.swal2-confirm').should('be.visible')
 		cy.get('.swal2-cancel').should('be.visible')
