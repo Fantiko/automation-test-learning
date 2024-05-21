@@ -319,7 +319,7 @@ describe('US 66295 Template de Vaga - Cadastrar ', ()=>{
 
 	})
 
-  it.skip('TC027 -  Validação Imagem',()=>{
+  it('TC027 -  Validação Imagem',()=>{
 
 
 
@@ -363,7 +363,7 @@ describe('US 66295 Template de Vaga - Cadastrar ', ()=>{
 
   })
 
-  it.only('TC030- Botão Salvar', ()=>{
+  it('TC030- Botão Salvar', ()=>{
     cy.get('#nomeVaga').type("exist")
 		cy.get('#areaTrabalho').type("exist")
 		cy.get('#localVaga').type("exist")
