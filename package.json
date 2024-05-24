@@ -2,13 +2,16 @@
     "name": "multiplo-environments",
     "version": "1.0.0",
     "scripts": {
-        "cy:open:homolog":"npx cypress open",
+        "cy:open:homolog": "npx cypress open",
         "cy:open:dev": "npx cypress open --config chromeWebSecurity=false",
-        "test:homolog":"npx cypress run --config baseUrl=https://sinistro-hml.digital-segurosunimed.com/ --env environment=homolog",
+        "test:homolog": "npx cypress run --config baseUrl=https://sinistro-hml.digital-segurosunimed.com/ --env environment=homolog",
         "test:dev": "npx cypress run --config chromeWebSecurity=false",
         "start": "my-server -p 3030",
         "cy:dash": "npx cypress run --record --key ",
         "test:dash": "start-server-and-test start http://localhost:3030 cy:run",
         "cypress:run": "npx cypress run --reporter junit --reporter-options mochaFile=cypress/reports/junit/test-results-[hash].xml,toConsole=true"
+    },
+    "dependencies": {
+        "my-server": "^2.0.7"
     }
 }
