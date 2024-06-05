@@ -359,7 +359,7 @@ describe('US 66295 Template de Vaga - Cadastrar ', ()=>{
 		cy.testaCampoQuill('#informacoesText > .ql-container > .ql-editor',12)
 
     cy.get('.d-flex > .btn-secondary').click()
-    cy.get('app-template-vaga-preview').should('be.visible')
+    cy.get('app-template-vaga-preview-modal').should('be.visible')
 
   })
 

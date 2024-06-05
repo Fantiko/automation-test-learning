@@ -106,7 +106,7 @@ describe('template spec', () => {
 
   })
 
-  it.only('TC009 - salvar habilidades com campo "Tipo" preenchido incorretamente',()=>{
+  it('TC009 - salvar habilidades com campo "Tipo" preenchido incorretamente',()=>{
 	cy.get('.ng-select-container').click()
 	cy.contains('Admissão').click()
 	cy.get('.ng-clear-wrapper').click()
