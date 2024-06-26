@@ -56,12 +56,12 @@ describe('US66291', () => {
 
 		cy.get('.filters').find('.ng-select-container').eq(1).click()
 		
-		cy.get('.ng-dropdown-panel .ng-option').contains("Abcedario2").click()
+		cy.get('.ng-dropdown-panel .ng-option').contains("Bem Vindo").click()
 		cy.get('.ng-dropdown-panel .ng-option').contains("Admissão 1").click()
 
 		cy.get('.filters').find('.ng-select-container').find('.ng-arrow-wrapper').eq(1).click()
 
-		cy.get('.list-item-multiselect > :nth-child(1)').should('contain.text', 'Abcedario2')
+		cy.get('.list-item-multiselect > :nth-child(1)').should('contain.text', 'Bem Vindo')
 		cy.get('.list-item-multiselect > :nth-child(2)').should('contain.text', 'Admissão 1')
 
 	})
@@ -95,12 +95,12 @@ describe('US66291', () => {
 
 		cy.get('.filters').find('.ng-select-container').eq(1).click()
 		
-		cy.get('.ng-dropdown-panel .ng-option').contains("Abcedario2").click()
+		cy.get('.ng-dropdown-panel .ng-option').contains("Bem Vindo").click()
 		cy.get('.ng-dropdown-panel .ng-option').contains("Admissão 1").click()
 
 		cy.get('.filters').find('.ng-select-container').find('.ng-arrow-wrapper').eq(1).click()
 
-		cy.get('.list-item-multiselect > :nth-child(1)').should('contain.text', 'Abcedario2')
+		cy.get('.list-item-multiselect > :nth-child(1)').should('contain.text', 'Bem Vindo')
 		cy.get('.list-item-multiselect > :nth-child(2)').should('contain.text', 'Admissão 1')
 
 		cy.get('.filters').find('.ng-select-container').eq(2).click()
@@ -138,13 +138,19 @@ describe('US66291', () => {
 		let anterior = null
 		cy.get('tbody > tr').each(($row)=>{
 			cy.wrap($row).find(':nth-child(5)').invoke('text').then((text)=>{
-				const valorAtual = parseInt(text.trim())
-
+				const valorAtual = text.split('/').map(Number)
 				if(anterior === null){
 					anterior = valorAtual
 					
 				} else {
-					expect(valorAtual).to.be.at.most(anterior);
+					for(let index in valorAtual){
+						if(valorAtual[index] > (anterior[index])){
+							break
+						}
+
+
+					}
+
 					anterior = valorAtual;
 
 				}

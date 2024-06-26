@@ -8,7 +8,7 @@ describe('US 66295 Template de Vaga - Cadastrar ', ()=>{
     cy.visit('https://app.dev.recrutamento.itixti-lab.com.br/?vid=c0c57cefce721e119b155b441e1722d6')
 
     cy.get('.ci-settings').click()
-    cy.get('.sub-menu > :nth-child(14)').click()
+    cy.get('.sub-menu > :nth-child(13)').click()
     cy.get('.secondary').click()
 
   })
