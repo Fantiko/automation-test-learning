@@ -1,10 +1,9 @@
 describe('template spec', () => {
   beforeEach('passes', ()=>{
-    cy.clearCookies()
-    cy.getCookies().should('be.empty')
-    cy.visit('https://app.dev.recrutamento.itixti-lab.com.br/?vid=8cdb223f3f39f2537d7856993abd539c')
+    cy.LoginAdm()
 
-    cy.get('app-home > :nth-child(3)').click()
+
+    cy.get('app-home > :nth-child(2)').click()
 
   })
 

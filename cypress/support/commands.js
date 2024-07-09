@@ -205,3 +205,14 @@ Cypress.Commands.add("envioJsonPost", (json, url, statusCode = 400, erroText= ''
 
         });
   });
+
+  Cypress.Commands.add('LoginAdm',()=>{
+        cy.clearCookies()
+		cy.getCookies().should('be.empty')
+		cy.visit('https://app.dev.recrutamento.itixti-lab.com.br')
+		cy.get('.btn-login').click()
+		cy.get('#email').type('dj@gmail.com')
+		cy.get('#password').type('Itix.123')
+		cy.get('.btn').click()
+        
+  })

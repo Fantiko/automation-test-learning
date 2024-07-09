@@ -2,13 +2,12 @@
 
 describe('US68312', () => {
   beforeEach('passes', () => {
-	cy.clearCookies()
-    cy.getCookies().should('be.empty')
-    cy.visit('https://app.dev.recrutamento.itixti-lab.com.br')
+	cy.LoginAdm()
+
 
     cy.get('.menu > .wrapper > .icon').eq(2).click()
     // cy.get(':nth-child(3) > .menu > .sub-menu').scrollTo('bottom')
-    cy.get('.sub-menu > :nth-child(10)').click()
+    cy.get('.sub-menu > :nth-child(9)').click()
   })
 
   it('TC001 -  tela de "Motivos de Contratação/Demissão"',()=>{

@@ -4,12 +4,11 @@
 describe("US 67093 ", () => {
 
 	beforeEach('passes', () => {
-		cy.clearCookies()
-		cy.getCookies().should('be.empty')
-		cy.visit('https://app.dev.recrutamento.itixti-lab.com.br/?vid=c0c57cefce721e119b155b441e1722d6')
+		cy.LoginAdm()
+
 	
 		cy.get('.ci-settings').click()
-		cy.get('.sub-menu > :nth-child(10)').click()
+		cy.get('.sub-menu > :nth-child(9)').click()
 		cy.get('tbody > :nth-child(1) > .description').click()
 	  })
 

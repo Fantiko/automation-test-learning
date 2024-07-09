@@ -4,12 +4,11 @@
 
 describe('US 66294 Template de Vaga - Pesquisar', () => {
   beforeEach('passes', ()=>{
-    cy.clearCookies()
-    cy.getCookies().should('be.empty')
-    cy.visit('https://app.dev.recrutamento.itixti-lab.com.br/?vid=8cdb223f3f39f2537d7856993abd539c')
+    cy.LoginAdm()
+
 
     cy.get('.ci-settings').click()
-    cy.get('.sub-menu > :nth-child(13)').click()
+    cy.get('.sub-menu > :nth-child(12)').click()
 
   })
 
